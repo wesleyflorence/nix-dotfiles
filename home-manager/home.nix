@@ -39,6 +39,7 @@ in
     # '')
     #pkgs.neovim
     tmux
+    kitty
     fd
 
     # fonts
