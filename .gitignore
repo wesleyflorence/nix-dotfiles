@@ -1,6 +1,10 @@
 # Private Envs
 private_env.zsh
 
+# zsh symlinks
+zsh/.z*
+zsh/plugins
+
 # Ubuntu Stuff
 .gsd-keyboard.settings-ported
 autostart
@@ -27,6 +31,7 @@ monitors.xml
 monitors.xml~
 nautilus
 neofetch
+nvim
 nyxt
 pavucontrol.ini
 procps
