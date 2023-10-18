@@ -8,12 +8,25 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-search-cli = {
+      url = "github:peterldowns/nix-search-cli";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { nixpkgs, home-manager, ... }:
+  outputs = { nixpkgs, home-manager, nix-search-cli, ... }:
     let
       system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
+      # Define an overlay that adds nix-search-cli to the package set
+      overlay = final: prev: {
+        nix-search-cli = nix-search-cli.packages.${system}.nix-search;
+      };
+
+      # Apply the overlay to get a modified pkgs
+      pkgs = import nixpkgs {
+        inherit system;
+        overlays = [ overlay ];
+      };
     in {
       homeConfigurations."wesley" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;

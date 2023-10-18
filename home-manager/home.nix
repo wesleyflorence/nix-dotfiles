@@ -40,6 +40,7 @@ in
     #pkgs.neovim
     tmux
     kitty
+    nix-search-cli
     fd
 
     # fonts
