@@ -157,18 +157,4 @@ in {
       recursive = true;
     };
   };
-
-  # xdg seems better but I'm saving this for ref
-  #home.file.".config/nvim" = {
-  #  source = config.lib.file.mkoutofstoresymlink (builtins.topath "/home/wesley/.config/dotfiles/nvim");
-  #  recursive = true;
-  #};
-
-  # TODO: kitty and tmux
-  #programs.kitty = {
-  #  enable = true;
-  #  settings = {
-
-  #  };
-  #};
 }
