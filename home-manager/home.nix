@@ -144,8 +144,7 @@ in {
       nodejs
       cargo # for nix lsp
 
-      # LSP could go here
-      #gopls
+      # LSP
       nixfmt
     ];
   };
