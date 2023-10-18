@@ -85,6 +85,7 @@ local normal_mappings = {
   },
   ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
   ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
+  ["f"] = { "<cmd>lua vim.lsp.buf.format({ async = true })<cr>", "Format" },
   ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
   ["H"] = { "<cmd>Alpha<cr>", "Home Dashboard" },
   ["j"] = { "<cmd>e ~/vault/jrn/" .. os.date "%Y.%m.%d" .. ".md<cr>", "jrn today"},

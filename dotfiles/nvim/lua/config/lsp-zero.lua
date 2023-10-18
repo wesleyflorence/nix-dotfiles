@@ -55,6 +55,7 @@ null_ls.setup {
     formatting.stylua,
     formatting.shfmt,
     formatting.google_java_format,
+    formatting.nixfmt,
   },
 }
 

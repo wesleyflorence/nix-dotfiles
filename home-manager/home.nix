@@ -1,9 +1,7 @@
 { config, pkgs, ... }:
 
-let
-  nvimDir = "${config.home.homeDirectory}/.config/dotfiles/nvim";
-in
-{
+let nvimDir = "${config.home.homeDirectory}/.config/dotfiles/nvim";
+in {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "wesley";
@@ -77,7 +75,7 @@ in
   #  /etc/profiles/per-user/wesley/etc/profile.d/hm-session-vars.sh
   #
   # if you don't want to manage your shell through Home Manager.
-  home.sessionVariables = {}; # This doesnt seem to work with gnome
+  home.sessionVariables = { }; # This doesnt seem to work with gnome
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
@@ -97,9 +95,7 @@ in
 
     dotDir = ".config/zsh";
 
-    shellAliases = {
-      vim = "nvim";
-    };
+    shellAliases = { vim = "nvim"; };
 
     history = {
       size = 1000000;
@@ -116,19 +112,16 @@ in
       prompt.theme = "pure";
     };
 
-    plugins = with pkgs;
-    [
-      {
-        name = "zsh-abbr";
-        src = fetchFromGitHub {
-          owner = "olets";
-          repo = "zsh-abbr";
-          rev = "7caa26bf11009c144752f4f6dc6c6cde39da99b8";
-          sha256 = "iKL2vn7TmQr78y0Bn02DgNf9DS5jZyh6uK9MzYTFZaA=";
-        };
-        file = "zsh-abbr.plugin.zsh";
-      }
-    ];
+    plugins = with pkgs; [{
+      name = "zsh-abbr";
+      src = fetchFromGitHub {
+        owner = "olets";
+        repo = "zsh-abbr";
+        rev = "7caa26bf11009c144752f4f6dc6c6cde39da99b8";
+        sha256 = "iKL2vn7TmQr78y0Bn02DgNf9DS5jZyh6uK9MzYTFZaA=";
+      };
+      file = "zsh-abbr.plugin.zsh";
+    }];
   };
 
   programs.fzf = {
@@ -140,10 +133,11 @@ in
     enable = true;
     defaultEditor = true;
 
-    plugins = with pkgs; [
-      # This is more reliable than the builtin
-      vimPlugins.nvim-treesitter.withAllGrammars
-    ];
+    plugins = with pkgs;
+      [
+        # This is more reliable than the builtin
+        vimPlugins.nvim-treesitter.withAllGrammars
+      ];
 
     extraPackages = with pkgs; [
       # languages
@@ -152,6 +146,7 @@ in
 
       # LSP could go here
       #gopls
+      nixfmt
     ];
   };
 

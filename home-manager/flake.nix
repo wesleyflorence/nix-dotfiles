@@ -15,16 +15,8 @@
     };
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    flake-utils,
-    home-manager,
-    nix-search-cli,
-    ...
-  }:
-  flake-utils.lib.eachSystem ["x86_64-linux" "aarch64-darwin" ]
-    (system:
+  outputs = { self, nixpkgs, flake-utils, home-manager, nix-search-cli, ... }:
+    flake-utils.lib.eachSystem [ "x86_64-linux" "aarch64-darwin" ] (system:
       let
         # Define an overlay that adds nix-search-cli to the package set
         overlay = final: prev: {
@@ -49,6 +41,5 @@
             # to pass through arguments to home.nix
           };
         };
-      }
-    );
+      });
 }
