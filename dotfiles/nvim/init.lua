@@ -1,0 +1,8 @@
+require "config.options"
+require "config.keymaps"
+require "config.lazy"
+require "config.autocommands"
+require "config.lsp-zero"
+require "config.dap"
+require "config.whichkey"
+require "config.templ"

@@ -1,0 +1,5 @@
+abbr "gg"="git status"
+abbr "hms"="home-manager switch"
+abbr "ll"="exa -al"
+abbr "ls"="exa"
+abbr "vim"="nvim"
