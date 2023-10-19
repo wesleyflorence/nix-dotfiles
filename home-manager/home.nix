@@ -49,6 +49,8 @@ in {
     #TODO font not found when launching kitty
     fira-code-nerdfont
 
+    #TODO 1password?
+
     # Some Golang specific stuff I should move later
     go_1_21
     gofumpt
