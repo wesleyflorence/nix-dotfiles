@@ -39,7 +39,6 @@ require('mason-lspconfig').setup({
 })
 
 lsp.preset('recommended')
---lsp.nvim_lua_ls()
 lsp.setup()
 
 -- null-ls
