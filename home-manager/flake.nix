@@ -28,9 +28,14 @@
           inherit system;
           overlays = [ overlay ];
         };
+
+        # Determine the username and home directory based on the system
+        user = if system == "x86_64-linux" then "wesley" else "wesleyflorence";
+        homeDir = if system == "x86_64-linux" then "/home/wesley" else "/Users/wesleyflorence";
       in {
         packages.homeConfigurations = {
-          wesley = home-manager.lib.homeManagerConfiguration {
+          # thinkpad user
+          "${user}" = home-manager.lib.homeManagerConfiguration {
             inherit pkgs;
 
             # Specify your home configuration modules here, for example,
@@ -39,6 +44,7 @@
 
             # Optionally use extraSpecialArgs
             # to pass through arguments to home.nix
+            extraSpecialArgs = { inherit user homeDir; };
           };
         };
       });

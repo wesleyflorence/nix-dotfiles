@@ -1,11 +1,14 @@
-{ config, pkgs, ... }:
+{ config, pkgs, ... }@args:
 
-let nvimDir = "${config.home.homeDirectory}/.config/dotfiles/nvim";
+let
+  username = args.user or "wesley";
+  homeDirectory = args.homeDir or "/home/wesley";
+  nvimDir = "${config.home.homeDirectory}/.config/dotfiles/nvim";
 in {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
-  home.username = "wesley";
-  home.homeDirectory = "/home/wesley";
+  home.username = username;
+  home.homeDirectory = homeDirectory;
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -37,15 +40,22 @@ in {
     # '')
     #pkgs.neovim
     tmux
+    #TODO needs symlinked to ~/Applications on Mac, maybe nix-darwin is needed
     kitty
     nix-search-cli
     fd
 
     # fonts
+    #TODO font not found when launching kitty
     fira-code-nerdfont
 
     # Some Golang specific stuff I should move later
     go_1_21
+    gofumpt
+    gotools
+    iferr
+    quicktype
+    revive
     flyctl
     tailwindcss
   ];
