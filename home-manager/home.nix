@@ -158,6 +158,7 @@ in {
 
       # LSP
       nixfmt
+      nil
     ];
   };
 

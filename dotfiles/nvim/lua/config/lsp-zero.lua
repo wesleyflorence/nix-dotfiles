@@ -31,12 +31,13 @@ require('mason-lspconfig').setup({
     "eslint",
     "kotlin_language_server",
     "templ",
-    "nil_ls"
   },
   handlers = {
     lsp.default_setup,
   },
 })
+-- nil_ls fails with Mason so trying it via Nix
+require('lspconfig').nil_ls.setup({})
 
 lsp.preset('recommended')
 lsp.setup()
