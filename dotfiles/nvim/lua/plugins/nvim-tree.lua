@@ -6,6 +6,21 @@ return {
     "nvim-tree/nvim-web-devicons",
   },
   config = function()
+    -- svelte logos broken in iterm for some reason
+    require("nvim-web-devicons").set_icon {
+      svelte = {
+        icon = "",
+        color = "#bf2e00",
+        cterm_color = "160",
+        name = "svelte"
+      },
+      ["svelte.config.js"] = {
+        icon = "",
+        color = "#bf2e00",
+        cterm_color = "160",
+        name = "svelte"
+      }
+    }
     require("nvim-tree").setup {
       update_focused_file = {
         enable = true,
