@@ -44,10 +44,15 @@ in {
     kitty
     nix-search-cli
     fd
+    bottom
 
     # fonts
     #TODO font not found when launching kitty
     fira-code-nerdfont
+
+    # LaTeX
+    texlive.combined.scheme-full
+    entr
 
     #TODO 1password?
 

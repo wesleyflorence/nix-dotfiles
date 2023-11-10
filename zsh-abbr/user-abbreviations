@@ -1,3 +1,5 @@
+abbr "bunrun"="bun run dev -- --open"
+abbr "concat-repo"="git ls-files | grep -v '\.lock' | xargs grep -I -l '' | xargs tail -n +1"
 abbr "gg"="git status"
 abbr "hms"="home-manager switch"
 abbr "jrn"="nvim ~/vault/jrn/2023.10.21.md"
