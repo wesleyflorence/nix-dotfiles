@@ -53,6 +53,8 @@ in {
     # LaTeX
     texlive.combined.scheme-full
     entr
+    zathura
+    pandoc
 
     #TODO 1password?
 
