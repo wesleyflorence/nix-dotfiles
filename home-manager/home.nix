@@ -105,12 +105,16 @@ in {
     enableAutosuggestions = true;
     syntaxHighlighting.enable = true;
 
-    initExtra = ''
-      unsetopt beep                               # don't beep
-      setopt hist_reduce_blanks                   # remove superfluous blanks
-      source $HOME/.config/zsh/my_functions.zsh   # custom funcs
-      source $HOME/.config/zsh/private_env.zsh    # secrets
-    '';
+  initExtra = ''
+    unsetopt beep                               # don't beep
+    setopt hist_reduce_blanks                   # remove superfluous blanks
+    source $HOME/.config/zsh/my_functions.zsh   # custom funcs
+    source $HOME/.config/zsh/private_env.zsh    # secrets
+    '' + (if pkgs.stdenv.isDarwin then ''
+      # On MacOS this will help prevent updates from disabling Nix
+      [[ ! $(command -v nix) && -e "/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh" ]] && source "/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh"
+    '' else ""
+    );
 
     dotDir = ".config/zsh";
 
